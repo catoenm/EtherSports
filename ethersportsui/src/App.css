@@ -1,5 +1,16 @@
+@font-face {
+    font-family: "League";
+    src: url("fonts/LeagueGothic-Regular.otf");
+}
+
+body {
+  background-color: #555
+}
+
 .App {
   text-align: center;
+  min-height: 100vh;
+  font-family: "League";
 }
 
 .App-logo {
@@ -8,14 +19,132 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #555;
   height: 150px;
   padding: 20px;
   color: white;
+  margin-bottom: 48px;
 }
 
 .App-intro {
   font-size: large;
+}
+
+.App-Content {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.container {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.event {
+  margin-top: 48px;
+  width: 100%;
+  background-color: #e2e2e2;
+  box-sizing: border-box;
+}
+
+.event-title {
+  position: relative;
+}
+
+.event-title .col {
+  background-color: #2f2f2f;
+  height: 128px;
+  overflow: hidden;
+  position: relative;
+}
+
+.event-title .col h2 {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 64px;
+  margin-left: 48px;
+  margin-top: 28px;
+  letter-spacing: 8px
+}
+
+.event-title .col:nth-child(2) h2 {
+  right: 0;
+  margin-right: 48px;
+}
+
+.event-title .col::before {
+  content: "";
+  display: block;
+  width: 400px;
+  height: 400px;
+  background-image: url("logo-p1.png");
+  background-size: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  top: -100px;
+  opacity: 0.6;
+  float: left;
+  padding-left: 24px;
+}
+
+.event-title .col:nth-child(1)::before {
+  background-image: url("logo-p1.png");
+  padding-left: 24px;
+}
+
+.event-title .col:nth-child(2)::before {
+  background-image: url("logo-imt.png");
+  padding-right: 24px;
+  float: right;
+}
+
+.event-title .versus {
+  font-size: 36px;
+  font-weight: bold;
+  color: #bbb;
+  text-transform: uppercase;
+  position: absolute;
+  padding-top: 48px;
+  width: 100%;
+}
+
+.event .col {
+  width: 50%;
+  float: left;
+}
+
+.event .wrapper {
+  background-color: #1e1e1e;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.event .wrapper .col {
+  font-size: 32px;
+  color: #e2e2e2;
+  box-sizing: border-box;
+}
+
+.event .value.eth::after {
+  content: " ETH";
+  color: #888;
+}
+
+.event .value.usd::before {
+  content: "$";
+}
+
+.event .value.usd::after {
+  content: " USD";
+  color: #888;
+}
+
+.event .wrapper .col:nth-child(1) {
+  border-right: 0.5px dashed #555;
 }
 
 @keyframes App-logo-spin {

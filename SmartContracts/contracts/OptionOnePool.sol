@@ -2,10 +2,26 @@ pragma solidity ^0.4.13;
 
 contract OptionOnePool {
   Bet[] public bets;
+  address sisterAddress;
+
+
+  function setSisterAddress(address _sisterAddress) returns (bool success) {
+    sisterAddress = _sisterAddress;
+    return true;
+  }
 
   function () payable {
-    address from = msg.sender;
-    addBet(from, 100);
+    address senderAddress = msg.sender;
+
+    if (senderAddress == sisterAddress) {
+      triggerPayment();
+    } else {
+      addBet(senderAddress, msg.value);
+    }
+  }
+
+  function triggerPayment() returns (bool success){
+    return true;
   }
 
   struct Bet {
@@ -13,7 +29,7 @@ contract OptionOnePool {
     uint amount;
   }
 
-  function addBet(address _wallet, uint _amount) returns (bool success) {
+  function addBet(address _wallet, uint _amount) private returns (bool success) {
     Bet memory newBet;
     newBet.wallet = _wallet;
     newBet.amount = _amount;
@@ -38,5 +54,9 @@ contract OptionOnePool {
     }
 
     return (wallets, amounts);
+  }
+
+  function getSisterAddress () constant returns (address) {
+    return sisterAddress;
   }
 }

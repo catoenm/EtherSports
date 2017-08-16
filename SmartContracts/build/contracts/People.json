@@ -122,10 +122,16 @@
     "1502315453816": {
       "events": {},
       "links": {},
-      "address": "0x6918f44578d549241ddf214e6adb833b0a751206",
-      "updated_at": 1502315489819
+      "address": "0x67845f0ab074b66b455399b364201d340d36d953",
+      "updated_at": 1502348822155
+    },
+    "1502859649382": {
+      "events": {},
+      "links": {},
+      "address": "0x770a48fb0504e934e7739b9c324625c41c988db2",
+      "updated_at": 1502859698580
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1502315489819
+  "updated_at": 1502859698580
 }

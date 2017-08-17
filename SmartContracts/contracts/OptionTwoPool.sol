@@ -1,6 +1,6 @@
 pragma solidity ^0.4.13;
 
-contract OptionOnePool {
+contract OptionTwoPool {
   Bet[] public bets;
   address sisterAddress;
 

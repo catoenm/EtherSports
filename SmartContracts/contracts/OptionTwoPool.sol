@@ -1,9 +1,9 @@
 pragma solidity ^0.4.13;
 
 contract OptionTwoPool {
-  Bet[] public bets;
+  Bet[] bets;
   address sisterAddress;
-
+  bool public flag = false;
 
   function setSisterAddress(address _sisterAddress) returns (bool success) {
     sisterAddress = _sisterAddress;
@@ -21,6 +21,7 @@ contract OptionTwoPool {
   }
 
   function triggerPayment() returns (bool success){
+    flag = true;
     return true;
   }
 
@@ -50,7 +51,7 @@ contract OptionTwoPool {
     address[] memory wallets = new address[](length);
     uint[] memory amounts = new uint[](length);
 
-    for (uint i = 0; i < bets.length; i++) {
+    for (uint i = 0; i < length; i++) {
       Bet memory currentBet;
       currentBet = bets[i];
 

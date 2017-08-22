@@ -1,9 +1,9 @@
 pragma solidity ^0.4.13;
 
 contract OptionOnePool {
-  Bet[] public bets;
+  Bet[] bets;
   address sisterAddress;
-
+  bool public flag = false;
 
   function setSisterAddress(address _sisterAddress) returns (bool success) {
     sisterAddress = _sisterAddress;
@@ -21,6 +21,7 @@ contract OptionOnePool {
   }
 
   function triggerPayment() returns (bool success){
+    flag = true;
     return true;
   }
 

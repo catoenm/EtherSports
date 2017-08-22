@@ -5,7 +5,9 @@
   "author": "Bill and Mitch",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "ethereumjs-testrpc": "^4.0.1",
+    "express": "^4.15.4",
     "fs": "^0.0.1-security",
     "swarm-js": "^0.1.36",
     "web3": "^1.0.0-beta.18",
@@ -16,5 +18,8 @@
     "web3-eth-contract": "^1.0.0-beta.18",
     "web3-eth-personal": "^1.0.0-beta.18",
     "web3-net": "^1.0.0-beta.18"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

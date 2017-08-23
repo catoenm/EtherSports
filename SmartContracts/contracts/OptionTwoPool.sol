@@ -4,6 +4,7 @@ contract OptionTwoPool {
   Bet[] bets;
   address sisterAddress;
   bool public flag = false;
+  uint public bettingTotal = 0;
 
   function setSisterAddress(address _sisterAddress) returns (bool success) {
     sisterAddress = _sisterAddress;
@@ -12,22 +13,22 @@ contract OptionTwoPool {
 
   function () payable {
     address senderAddress = msg.sender;
-
-    if (senderAddress == sisterAddress) {
-      triggerPayment();
-    } else {
+    if (senderAddress != sisterAddress) {
       addBet(senderAddress, msg.value);
     }
   }
 
-  function triggerPayment() returns (bool success){
-    flag = true;
-    return true;
+  function dumpEtherToSister(address _address) {
+    _address.transfer(this.balance);
   }
 
-  function dumpEtherToSister() returns (bool success) {
-    sisterAddress.transfer(this.balance);
-    return true;
+  function payBetters() {
+    uint length = bets.length;
+    for (uint i = 0; i < length; i++) {
+      Bet memory currentBet;
+      currentBet = bets[i];
+      currentBet.wallet.transfer(bettingTotal/10);
+    }
   }
 
   struct Bet {
@@ -35,13 +36,12 @@ contract OptionTwoPool {
     uint amount;
   }
 
-  function addBet(address _wallet, uint _amount) private returns (bool success) {
+  function addBet(address _wallet, uint _amount) private {
     Bet memory newBet;
     newBet.wallet = _wallet;
     newBet.amount = _amount;
-
+    bettingTotal += _amount;
     bets.push(newBet);
-    return true;
   }
 
   function getBets() constant returns (address[], uint[]) {
